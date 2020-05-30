@@ -1,7 +1,7 @@
 //Minhas alternativas
 
 //Módulo 2
-
+/*
 var peso1 = document.getElementsByClassName('info-peso')[0];
 var peso2 = document.getElementsByClassName('info-peso')[1];
 var peso3 = document.getElementsByClassName('info-peso')[2];
@@ -30,7 +30,7 @@ imc5.innerHTML = Number(peso5.textContent)/(Number(altura5.textContent)*Number(a
 
 
 console.log(imc1); 
-
+/*
 /*
 //Módulo 1
 var titulo = document.querySelector('.titulo');
@@ -38,7 +38,7 @@ var titulo = document.querySelector('.titulo');
 titulo.textContent = 'Aparecida Nutricionista';
 */
 //Alternativa do professor
-/*var titulo = document.querySelector(".titulo");
+var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista";
 
 var pacientes = document.querySelectorAll(".paciente");
@@ -77,4 +77,3 @@ for (var i = 0; i < pacientes.length; i++) {
         tdImc.textContent = imc.toFixed(2);
     }
 }
-*/

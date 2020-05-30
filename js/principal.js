@@ -49,7 +49,7 @@ for (var i = 0; i < pacientes.length; i++) {
 
     var tdPeso = paciente.querySelector(".info-peso");
     var peso = tdPeso.textContent;
-
+    var adicionarPaciente = document.querySelector("#adicionar-paciente")
     var tdAltura = paciente.querySelector(".info-altura");
     var altura = tdAltura.textContent;
 
@@ -76,4 +76,13 @@ for (var i = 0; i < pacientes.length; i++) {
         var imc = peso / (altura * altura);
         tdImc.textContent = imc.toFixed(2);
     }
+}
+adicionarPaciente.addEventListener("click",function(event){
+    event.preventDefault()
+    console.log("Clicou")
+});
+titulo.addEventListener("click", mostraMensagem);
+
+function mostraMensagem() {
+    console.log("Olá eu fui clicado!");
 }

@@ -1,9 +1,15 @@
+var adicionarPaciente = document.querySelector("#adicionar-paciente")
 adicionarPaciente.addEventListener("click", function (event) {
     event.preventDefault()
     var formulario = document.querySelector("#form-adiciona")
     var paciente = obtemPacienteFormulario(formulario);
-    console.log(paciente)
+
+
     var pacienteTr = montaTr(paciente)
+    if (!validaPaciente(paciente)) {
+        console.log("Paciente Inválido");
+        return;
+    }
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
     formulario.reset();
@@ -38,4 +44,12 @@ function criaTd(dado, classe) {
     td.textContent = dado;
     td.classList.add(classe);
     return td;
+}
+
+function validaPaciente(paciente) {
+    if (validaPeso(paciente.peso)) {
+        return true;
+    }else{
+        return false;
+    }
 }

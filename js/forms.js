@@ -4,10 +4,11 @@ adicionarPaciente.addEventListener("click", function (event) {
     var formulario = document.querySelector("#form-adiciona")
     var paciente = obtemPacienteFormulario(formulario);
 
-
+    var erros = validaPaciente(paciente);
     var pacienteTr = montaTr(paciente)
-    if (!validaPaciente(paciente)) {
-        console.log("Paciente Inválido");
+    if (erro.length > 0) {
+        var err = document.querySelector("#mensagem-erro");
+        err.textContent = erros;
         return;
     }
     var tabela = document.querySelector("#tabela-pacientes");
@@ -47,9 +48,13 @@ function criaTd(dado, classe) {
 }
 
 function validaPaciente(paciente) {
-    if (validaPeso(paciente.peso)) {
-        return true;
-    }else{
-        return false;
+    var erros = [];
+    if (!validaPeso(paciente.peso)) {
+        erros.push("Peso inválido");
     }
+
+    if (!validaAltura(paciente.altura)) {
+        erros.push("Altura inválida");
+    }
+    return erros;
 }

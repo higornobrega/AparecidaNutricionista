@@ -4,20 +4,24 @@ adicionarPaciente.addEventListener("click", function (event) {
     var formulario = document.querySelector("#form-adiciona")
     var paciente = obtemPacienteFormulario(formulario);
 
-    var pacienteTr = montaTr(paciente);
     var erros = validaPaciente(paciente);
-
     if (erros.length > 0) {
         exibeMensagensDeErro(erros)
         return;
     }
-    var tabela = document.querySelector("#tabela-pacientes");
-    tabela.appendChild(pacienteTr);
     var ul = document.querySelector("#mensagem-erro");
     ul.innerHTML = "";
+    adicionaPacienteNaTabel(paciente)
     formulario.reset();
 
 });
+
+function adicionaPacienteNaTabel(pacientes) {
+    var pacienteTr = montaTr(pacientes);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+
+}
 
 function obtemPacienteFormulario(formulario) {
     var paciente = {

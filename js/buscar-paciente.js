@@ -10,7 +10,11 @@ butaoAdicionar.addEventListener("click", function(){
 
     //Escuta, carrega e mostra os dados do site/api
     xhr.addEventListener("load", function(){
-        console.log(xhr.responseText)
+        var resposta = xhr.responseText;
+        var pacientes = JSON.parse(resposta); //Converte a string em JSON para o JavaScript ler melhor
+        pacientes.forEach(function(paciente){
+            adicionaPacienteNaTabel(paciente);
+        })
     })
 
     //Envia a requisição
